@@ -1,0 +1,42 @@
+# NAME
+
+Beam::Runner - Run methods from objects in Beam::Wire containers
+
+# VERSION
+
+version 0.001
+
+# STATUS
+
+<a href="https://travis-ci.org/preaction/Beam-Runner"><img src="https://travis-ci.org/preaction/Beam-Runner.svg?branch=master"></a><a href="https://coveralls.io/r/preaction/Beam-Runner"><img src="https://coveralls.io/repos/preaction/Beam-Runner/badge.png" alt="Coverage Status" /></a>
+
+# SYNOPSIS
+
+    beam run <container> <service> [<args...>]
+    beam list
+    beam list <container>
+    beam help <container> <service>
+    beam help
+
+# DESCRIPTION
+
+This distribution is an execution and organization system for
+[Beam::Wire](https://metacpan.org/pod/Beam::Wire) containers. This allows you to prepare executable objects
+in configuration files and then execute them. This also allows easy
+discovery of container files and objects, and allows you to document
+your objects for your users.
+
+# SEE ALSO
+
+[beam](https://metacpan.org/pod/beam), [Beam::Runnable](https://metacpan.org/pod/Beam::Runnable), [Beam::Wire](https://metacpan.org/pod/Beam::Wire)
+
+# AUTHOR
+
+Doug Bell <preaction@cpan.org>
+
+# COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2016 by Doug Bell.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
