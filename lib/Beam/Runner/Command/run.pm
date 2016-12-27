@@ -1,4 +1,5 @@
 package Beam::Runner::Command::run;
+our $VERSION = '0.001';
 # ABSTRACT: Run the given service with the given arguments
 
 =head1 SYNOPSIS

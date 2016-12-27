@@ -1,4 +1,5 @@
 package Beam::Runnable;
+our $VERSION = '0.001';
 # ABSTRACT: Role for runnable objects
 
 =head1 SYNOPSIS
