@@ -32,7 +32,12 @@ sub run {
         $path = path( $container );
     }
     else {
-        DIR: for my $dir ( ".", split /:/, $ENV{BEAM_PATH} ) {
+        my @dirs = ( "." );
+        if ( $ENV{BEAM_PATH} ) {
+            push @dirs, split /:/, $ENV{BEAM_PATH};
+        }
+
+        DIR: for my $dir ( @dirs ) {
             my $d = path( $dir );
             for my $ext ( @EXTS ) {
                 my $f = $d->child( $container . $ext );
