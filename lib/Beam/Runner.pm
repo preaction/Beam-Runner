@@ -1,6 +1,6 @@
 package Beam::Runner;
 our $VERSION = '0.002';
-# ABSTRACT: Run methods from objects in Beam::Wire containers
+# ABSTRACT: Execute runnable objects from Beam::Wire containers
 
 =head1 SYNOPSIS
 
