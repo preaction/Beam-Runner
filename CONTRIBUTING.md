@@ -33,10 +33,9 @@ collaboration between them. Using integration patterns creates more
 modular, reusable, maintainable, and isolated code (for those times
 where you need to wholly replace a part of your project).
 
-The Beam::Emitter distribution is an event emitter. Event emitters allow
-your code to subscribe to interesting events and respond to them,
-performing additional actions like logging, data transformation,
-notification, and more.
+Beam::Runner is a simple command to execute routines found in objects
+from the command line. It includes a role for executable objects to
+implement, and a command-line utility to execute the object's routine.
 
 The Beam modules are meant to be easy to use and to follow good OO
 design principles while still being Perly.
@@ -57,7 +56,7 @@ objects, and this project executes methods on the one the user wants.
 Using this project, users should be able to easily see what routines
 they can run, and what information they have available to create their
 own custom routines. This is a starting point for someone discovering
-what the system built with this software can do.
+what the system built with Beam software can do.
 
 ### Repository Layout
 
