@@ -1,5 +1,5 @@
 Changelog for Beam-Runner
 
-{{ $NEXT }}
+0.001     2016-12-27 00:30:46-06:00 America/Chicago
 
     - Initial release of "run" command
