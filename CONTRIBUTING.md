@@ -6,11 +6,9 @@ and patches.
 
 ## Communication
 
-XXX Add communication forums
-
 If you're not sure about anything, please open an issue and ask, or
 e-mail the project founder <preaction@cpan.org> or [talk to us on IRC on
-irc.perl.org channel #cpantesters-discuss](https://chat.mibbit.com/?channel=%23cpantesters-discuss&server=irc.perl.org)!
+irc.perl.org channel #beam](https://chat.mibbit.com/?channel=%23beam&server=irc.perl.org)!
 
 ## Standard of Conduct
 
@@ -28,10 +26,38 @@ Remember, all the people who contribute to this project are volunteers.
 
 ## About this Project
 
+The Beam project is a set of integration patterns to be used in Perl
+projects. Integration patterns allow for different systems to work
+together with a common set of APIs designed to enable communication and
+collaboration between them. Using integration patterns creates more
+modular, reusable, maintainable, and isolated code (for those times
+where you need to wholly replace a part of your project).
+
+The Beam::Emitter distribution is an event emitter. Event emitters allow
+your code to subscribe to interesting events and respond to them,
+performing additional actions like logging, data transformation,
+notification, and more.
+
+The Beam modules are meant to be easy to use and to follow good OO
+design principles while still being Perly.
+
+Inspiration for the Beam project is found in:
+
+* [Enterprise Integration
+  Patterns](http://www.enterpriseintegrationpatterns.com)
+* [Java's Spring framework](https://spring.io)
+
 ### Project Goals
 
-XXX Add project goals
+This project is a generic module runner and service discovery command
+for Beam::Wire containers. The goal of this project is to aid in
+organizing and executing programs. Containers are sets of configured
+objects, and this project executes methods on the one the user wants.
 
+Using this project, users should be able to easily see what routines
+they can run, and what information they have available to create their
+own custom routines. This is a starting point for someone discovering
+what the system built with this software can do.
 
 ### Repository Layout
 
