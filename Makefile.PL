@@ -7,7 +7,7 @@ use 5.008;
 use ExtUtils::MakeMaker;
 
 my %WriteMakefileArgs = (
-  "ABSTRACT" => "Run methods from objects in Beam::Wire containers",
+  "ABSTRACT" => "Execute runnable objects from Beam::Wire containers",
   "AUTHOR" => "Doug Bell <preaction\@cpan.org>",
   "CONFIGURE_REQUIRES" => {
     "ExtUtils::MakeMaker" => 0
@@ -27,6 +27,7 @@ my %WriteMakefileArgs = (
     "Types::Standard" => 0
   },
   "TEST_REQUIRES" => {
+    "Capture::Tiny" => 0,
     "ExtUtils::MakeMaker" => 0,
     "File::Spec" => 0,
     "IO::Handle" => 0,
@@ -44,6 +45,7 @@ my %WriteMakefileArgs = (
 
 my %FallbackPrereqs = (
   "Beam::Wire" => 0,
+  "Capture::Tiny" => 0,
   "ExtUtils::MakeMaker" => 0,
   "File::Spec" => 0,
   "IO::Handle" => 0,

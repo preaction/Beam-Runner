@@ -1,5 +1,5 @@
 {
-   "abstract" : "Run methods from objects in Beam::Wire containers",
+   "abstract" : "Execute runnable objects from Beam::Wire containers",
    "author" : [
       "Doug Bell <preaction@cpan.org>"
    ],
@@ -44,6 +44,7 @@
             "CPAN::Meta" : "2.120900"
          },
          "requires" : {
+            "Capture::Tiny" : "0",
             "ExtUtils::MakeMaker" : "0",
             "File::Spec" : "0",
             "IO::Handle" : "0",
@@ -57,27 +58,31 @@
    "provides" : {
       "Beam::Runnable" : {
          "file" : "lib/Beam/Runnable.pm",
-         "version" : "0.001"
+         "version" : "0.002"
       },
       "Beam::Runner" : {
          "file" : "lib/Beam/Runner.pm",
-         "version" : "0.001"
+         "version" : "0.002"
       },
       "Beam::Runner::Command" : {
          "file" : "lib/Beam/Runner/Command.pm",
-         "version" : "0.001"
+         "version" : "0.002"
       },
       "Beam::Runner::Command::help" : {
          "file" : "lib/Beam/Runner/Command/help.pm",
-         "version" : "0.001"
+         "version" : "0.002"
       },
       "Beam::Runner::Command::list" : {
          "file" : "lib/Beam/Runner/Command/list.pm",
-         "version" : "0.001"
+         "version" : "0.002"
       },
       "Beam::Runner::Command::run" : {
          "file" : "lib/Beam/Runner/Command/run.pm",
-         "version" : "0.001"
+         "version" : "0.002"
+      },
+      "Beam::Runner::Util" : {
+         "file" : "lib/Beam/Runner/Util.pm",
+         "version" : "0.002"
       }
    },
    "release_status" : "stable",
@@ -92,7 +97,7 @@
          "web" : "https://github.com/preaction/Beam-Runner"
       }
    },
-   "version" : "0.001",
+   "version" : "0.002",
    "x_authority" : "cpan:PREACTION",
    "x_serialization_backend" : "Cpanel::JSON::XS version 3.0216"
 }

@@ -1,5 +1,10 @@
 Changelog for Beam-Runner
 
+0.002     2016-12-27 23:10:30-06:00 America/Chicago
+
+    - Add basic "list" command to list the available containers and the
+      services within them
+
 0.001     2016-12-27 00:30:46-06:00 America/Chicago
 
     - Initial release of "run" command

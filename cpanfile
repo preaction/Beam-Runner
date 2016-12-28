@@ -6,6 +6,7 @@ requires "Types::Standard" => "0";
 requires "perl" => "5.008";
 
 on 'test' => sub {
+  requires "Capture::Tiny" => "0";
   requires "ExtUtils::MakeMaker" => "0";
   requires "File::Spec" => "0";
   requires "IO::Handle" => "0";

@@ -1,10 +1,10 @@
 # NAME
 
-Beam::Runner - Run methods from objects in Beam::Wire containers
+Beam::Runner - Execute runnable objects from Beam::Wire containers
 
 # VERSION
 
-version 0.001
+version 0.002
 
 # STATUS
 
