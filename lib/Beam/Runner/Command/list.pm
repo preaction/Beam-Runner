@@ -1,5 +1,5 @@
 package Beam::Runner::Command::list;
-our $VERSION = '0.002';
+our $VERSION = '0.003';
 # ABSTRACT: List the available containers and services
 
 =head1 SYNOPSIS
