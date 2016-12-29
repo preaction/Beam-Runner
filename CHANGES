@@ -1,5 +1,15 @@
 Changelog for Beam-Runner
 
+{{ $NEXT }}
+
+    [Added]
+
+    - Added more information to the "list" command so that users can see
+      a short summary of what's in the listed container files, and an
+      abstract about what those runnable tasks might do. The previous
+      version only listed the names of containers/services, which wasn't
+      very useful.
+
 0.002     2016-12-27 23:10:30-06:00 America/Chicago
 
     - Add basic "list" command to list the available containers and the
