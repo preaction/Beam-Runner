@@ -20,10 +20,14 @@ my %WriteMakefileArgs = (
   "MIN_PERL_VERSION" => "5.008",
   "NAME" => "Beam::Runner",
   "PREREQ_PM" => {
-    "Beam::Wire" => 0,
+    "Beam::Wire" => "1.019",
+    "List::Util" => "1.33",
     "Module::Runtime" => 0,
     "Moo" => 2,
     "Path::Tiny" => "0.072",
+    "Pod::Find" => 0,
+    "Pod::Simple::SimpleTree" => 0,
+    "Term::ANSIColor" => 0,
     "Types::Standard" => 0
   },
   "TEST_REQUIRES" => {
@@ -44,15 +48,19 @@ my %WriteMakefileArgs = (
 
 
 my %FallbackPrereqs = (
-  "Beam::Wire" => 0,
+  "Beam::Wire" => "1.019",
   "Capture::Tiny" => 0,
   "ExtUtils::MakeMaker" => 0,
   "File::Spec" => 0,
   "IO::Handle" => 0,
   "IPC::Open3" => 0,
+  "List::Util" => "1.33",
   "Module::Runtime" => 0,
   "Moo" => 2,
   "Path::Tiny" => "0.072",
+  "Pod::Find" => 0,
+  "Pod::Simple::SimpleTree" => 0,
+  "Term::ANSIColor" => 0,
   "Test::Fatal" => 0,
   "Test::Lib" => 0,
   "Test::More" => "1.001005",

@@ -4,7 +4,7 @@ Beam::Runner - Execute runnable objects from Beam::Wire containers
 
 # VERSION
 
-version 0.002
+version 0.003
 
 # STATUS
 
@@ -25,6 +25,50 @@ This distribution is an execution and organization system for
 in configuration files and then execute them. This also allows easy
 discovery of container files and objects, and allows you to document
 your objects for your users.
+
+## Container Files
+
+The container file is a configuration file that describes services. Some
+of these services are marked as executable by using the [Beam::Runnable](https://metacpan.org/pod/Beam::Runnable)
+role.
+
+The container file can have a special service called `$summary` which
+has a short summary that will be displayed when using the `beam list`
+command.
+
+Here's an example container file that has a summary, configures
+a [DBIx::Class](https://metacpan.org/pod/DBIx::Class) schema (using the schema class for CPAN Testers:
+[CPAN::Testers::Schema](https://metacpan.org/pod/CPAN::Testers::Schema)), and configures a runnable task called
+`to_metabase` located in the class
+`CPAN::Testers::Backend::Migrate::ToMetabase`:
+
+    # migrate.yml
+    $summary: Migrate data between databases
+
+    _schema:
+        $class: CPAN::Testers::Schema
+        $method: connect_from_config
+
+    to_metabase:
+        $class: CPAN::Testers::Backend::Migrate::ToMetabase
+        schema:
+            $ref: _schema
+
+For more information about container files, see [the Beam::Wire
+documentation](https://metacpan.org/pod/Beam::Wire).
+
+## Services
+
+A service is an object configured in the container file. `Beam::Runner`
+works with executable objects that consume the [Beam::Runnable](https://metacpan.org/pod/Beam::Runnable) role.
+This role requires only a `run()` method be implemented in the class.
+
+Services are expected to have documentation that will be displayed by
+the `beam list` and `beam help` commands. The `beam list` command
+will display the `NAME` section of the documentation, and the `beam
+help` command will display the `NAME`, `SYNOPSIS`, `DESCRIPTION`,
+`ARGUMENTS`, `OPTIONS`, `ENVIRONMENT`, and `SEE ALSO` sections of
+the documentation.
 
 # SEE ALSO
 
