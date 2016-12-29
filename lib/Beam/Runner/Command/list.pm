@@ -107,7 +107,7 @@ sub _list_services {
     my $wire = Beam::Wire->new(
         file => $path,
     );
-    print "$cname -- " . ( $wire->get( '$summary' ) || '' ) . "\n";
+    print "$cname" . ( eval { " -- " . $wire->get( '$summary' ) } || '' ) . "\n";
 
     my $config = $wire->config;
     my %services;
