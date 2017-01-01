@@ -1,5 +1,12 @@
 Changelog for Beam-Runner
 
+0.004     2016-12-31 22:46:21-06:00 America/Chicago
+
+    [Added]
+
+    - Added basic "help" command which shows the class documentation for
+      the given service from the given container.
+
 0.003     2016-12-29 01:15:57-06:00 America/Chicago
 
     [Added]
