@@ -1,5 +1,12 @@
 Changelog for Beam-Runner
 
+{{ $NEXT }}
+
+    [Fixed]
+
+    - Fixed `help` command tests failing on Windows because of incorrect
+      path comparisons
+
 0.004     2016-12-31 22:46:21-06:00 America/Chicago
 
     [Added]
