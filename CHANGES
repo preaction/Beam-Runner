@@ -1,6 +1,11 @@
 Changelog for Beam-Runner
 
-{{ $NEXT }}
+0.006     2017-01-03 00:29:41-06:00 America/Chicago
+
+    [Fixed]
+
+    - Fixed `help` command tests failing on Windows because of regex
+      metacharacters in Windows paths
 
 0.005     2017-01-01 23:01:20-06:00 America/Chicago
 
