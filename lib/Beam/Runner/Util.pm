@@ -1,5 +1,5 @@
 package Beam::Runner::Util;
-our $VERSION = '0.006';
+our $VERSION = '0.007';
 # ABSTRACT: Utilities for Beam::Runner command classes
 
 =head1 SYNOPSIS
