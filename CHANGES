@@ -2,6 +2,12 @@ Changelog for Beam-Runner
 
 {{ $NEXT }}
 
+    [Fixed]
+
+    - `beam list` no longer displays container without runnable
+      services. This allows us to have utility containers without
+      cluttering up the output.
+
 0.006     2017-01-03 00:29:41-06:00 America/Chicago
 
     [Fixed]
