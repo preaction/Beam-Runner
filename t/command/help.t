@@ -23,6 +23,7 @@ use Path::Tiny qw( path );
 use Beam::Runner::Command::help;
 use Mock::MonkeyPatch;
 
+local $ENV{BEAM_PATH} = undef;
 my $SHARE_DIR = path( $FindBin::Bin, '..', 'share' );
 my $class = 'Beam::Runner::Command::help';
 

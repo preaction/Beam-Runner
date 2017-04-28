@@ -26,6 +26,7 @@ use Path::Tiny qw( path );
 use Capture::Tiny qw( capture );
 use Beam::Runner::Command::list;
 
+local $ENV{BEAM_PATH} = undef;
 my $SHARE_DIR = path( $FindBin::Bin, '..', 'share' );
 my %COLOR = ( bold => color('bold'), reset => color( 'reset' ) );
 my $class = 'Beam::Runner::Command::list';
