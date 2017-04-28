@@ -8,6 +8,9 @@ Changelog for Beam-Runner
       services. This allows us to have utility containers without
       cluttering up the output.
 
+    - `beam list <container>` will now throw an error if the given
+      container contains no runnable services
+
 0.006     2017-01-03 00:29:41-06:00 America/Chicago
 
     [Fixed]
