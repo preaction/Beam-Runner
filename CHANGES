@@ -5,6 +5,8 @@ Changelog for Beam-Runner
     [Fixed]
 
     - Fix test failure when BEAM_PATH is set in environment
+    - Fix error message saying "service not found" when the service
+      failed to load because one of its dependencies was not found.
 
 0.007     2017-04-28 01:58:08-05:00 America/Chicago
 
