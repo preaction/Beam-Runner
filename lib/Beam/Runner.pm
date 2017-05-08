@@ -1,30 +1,30 @@
 package Beam::Runner;
 our $VERSION = '0.009';
-# ABSTRACT: Configure, list, document, and execute runnable objects
+# ABSTRACT: Configure, list, document, and execute runnable task objects
 
 =head1 SYNOPSIS
 
-    beam run <container> <service> [<args...>]
+    beam run <container> <task> [<args...>]
     beam list
     beam list <container>
-    beam help <container> <service>
+    beam help <container> <task>
     beam help
 
 =head1 DESCRIPTION
 
 This distribution is an execution and organization system for runnable
-objects. This allows you to prepare a list of runnable tasks in
+objects (tasks). This allows you to prepare a list of runnable tasks in
 configuration files and then execute them. This also allows easy
 discovery of configuration files and objects, and allows you to document
 your objects for your users.
 
-=head2 Container Files
+=head2 Configuration Files
 
 The configuration file is a L<Beam::Wire> container file that describes
-services. Some of these services are marked as executable by consuming the
-L<Beam::Runnable> role.
+objects. Some of these objects are marked as executable tasks by
+consuming the L<Beam::Runnable> role.
 
-The container file can have a special service called C<$summary> which
+The container file can have a special entry called C<$summary> which
 has a short summary that will be displayed when using the C<beam list>
 command.
 
@@ -51,12 +51,12 @@ documentation|Beam::Wire>.
 
 =head2 Tasks
 
-A task is an object configured in the container file. C<Beam::Runner>
-works with executable objects that consume the L<Beam::Runnable> role.
-This role requires only a C<run()> method be implemented in the class.
+A task is an object configured in the container file that consumes the
+L<Beam::Runnable> role. This role requires only a C<run()> method be
+implemented in the class.
 
-Tasks are expected to have documentation that will be displayed by
-the C<beam list> and C<beam help> commands. The C<beam list> command
+Task modules are expected to have documentation that will be displayed
+by the C<beam list> and C<beam help> commands. The C<beam list> command
 will display the C<NAME> section of the documentation, and the C<beam
 help> command will display the C<NAME>, C<SYNOPSIS>, C<DESCRIPTION>,
 C<ARGUMENTS>, C<OPTIONS>, C<ENVIRONMENT>, and C<SEE ALSO> sections of
