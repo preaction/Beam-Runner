@@ -34,7 +34,8 @@ C<OPTIONS>, and C<SEE ALSO> sections. This is the same as what
 L<Pod::Usage> produces by default.
 
 The C<beam list> command, when listing runnable objects, will display
-the C<NAME> (abstract) next to the service name.
+either the C<summary> attribute or the C<NAME> POD section (abstract)
+next to the service name.
 
 =head1 SEE ALSO
 
@@ -45,6 +46,20 @@ L<beam>, L<Beam::Runner>
 use strict;
 use warnings;
 use Moo::Role;
+with 'Beam::Service';
+use Types::Standard qw( Str );
+
+=attr summary
+
+A summary of the task to be run. This will be displayed by the C<beam
+list> command in the list.
+
+=cut
+
+has summary => (
+    is => 'ro',
+    isa => Str,
+);
 
 =method run
 
