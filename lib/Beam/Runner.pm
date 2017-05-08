@@ -1,5 +1,5 @@
 package Beam::Runner;
-our $VERSION = '0.008';
+our $VERSION = '0.009';
 # ABSTRACT: Configure, list, document, and execute runnable objects
 
 =head1 SYNOPSIS
