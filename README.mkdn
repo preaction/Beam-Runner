@@ -1,10 +1,10 @@
 # NAME
 
-Beam::Runner - Execute runnable objects from Beam::Wire containers
+Beam::Runner - Configure, list, document, and execute runnable objects
 
 # VERSION
 
-version 0.007
+version 0.008
 
 # STATUS
 
@@ -20,17 +20,17 @@ version 0.007
 
 # DESCRIPTION
 
-This distribution is an execution and organization system for
-[Beam::Wire](https://metacpan.org/pod/Beam::Wire) containers. This allows you to prepare executable objects
-in configuration files and then execute them. This also allows easy
-discovery of container files and objects, and allows you to document
+This distribution is an execution and organization system for runnable
+objects. This allows you to prepare a list of runnable tasks in
+configuration files and then execute them. This also allows easy
+discovery of configuration files and objects, and allows you to document
 your objects for your users.
 
 ## Container Files
 
-The container file is a configuration file that describes services. Some
-of these services are marked as executable by using the [Beam::Runnable](https://metacpan.org/pod/Beam::Runnable)
-role.
+The configuration file is a [Beam::Wire](https://metacpan.org/pod/Beam::Wire) container file that describes
+services. Some of these services are marked as executable by consuming the
+[Beam::Runnable](https://metacpan.org/pod/Beam::Runnable) role.
 
 The container file can have a special service called `$summary` which
 has a short summary that will be displayed when using the `beam list`
@@ -57,13 +57,13 @@ a [DBIx::Class](https://metacpan.org/pod/DBIx::Class) schema (using the schema c
 For more information about container files, see [the Beam::Wire
 documentation](https://metacpan.org/pod/Beam::Wire).
 
-## Services
+## Tasks
 
-A service is an object configured in the container file. `Beam::Runner`
+A task is an object configured in the container file. `Beam::Runner`
 works with executable objects that consume the [Beam::Runnable](https://metacpan.org/pod/Beam::Runnable) role.
 This role requires only a `run()` method be implemented in the class.
 
-Services are expected to have documentation that will be displayed by
+Tasks are expected to have documentation that will be displayed by
 the `beam list` and `beam help` commands. The `beam list` command
 will display the `NAME` section of the documentation, and the `beam
 help` command will display the `NAME`, `SYNOPSIS`, `DESCRIPTION`,
