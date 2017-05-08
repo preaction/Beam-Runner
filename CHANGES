@@ -1,6 +1,18 @@
 Changelog for Beam-Runner
 
-{{ $NEXT }}
+0.009     2017-05-08 14:23:56-05:00 America/Chicago
+
+    [Added]
+
+    - A `summary` field in the task configuration to allow custom
+      summaries for tasks. These summaries appear in `beam list` instead
+      of the default summary (the module's `NAME` POD section)
+
+    [Fixed]
+
+    - Clarified the documentation a little: "Services" are now just
+      called "tasks" or "objects" depending on if they're executable or
+      not.
 
 0.008     2017-05-08 14:09:47-05:00 America/Chicago
 
