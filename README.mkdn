@@ -4,7 +4,7 @@ Beam::Runner - Configure, list, document, and execute runnable task objects
 
 # VERSION
 
-version 0.009
+version 0.010
 
 # STATUS
 
