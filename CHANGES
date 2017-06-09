@@ -9,6 +9,12 @@ Changelog for Beam-Runner
 
     - Added quickstart tutorial for getting started using Beam::Runner.
 
+    [Fixed]
+
+    - Fixed `beam help` command showing the `beam` command documentation
+      if the given task has no documentation. Now it correctly shows an
+      error message instead.
+
 0.010     2017-05-13 10:34:53+02:00 Europe/Paris
 
     [Fixed]
