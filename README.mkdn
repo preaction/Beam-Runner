@@ -4,7 +4,7 @@ Beam::Runner - Configure, list, document, and execute runnable task objects
 
 # VERSION
 
-version 0.010
+version 0.011
 
 # STATUS
 
@@ -25,6 +25,24 @@ objects (tasks). This allows you to prepare a list of runnable tasks in
 configuration files and then execute them. This also allows easy
 discovery of configuration files and objects, and allows you to document
 your objects for your users.
+
+## Create a Task
+
+A task is an object that consumes the [Beam::Runnable](https://metacpan.org/pod/Beam::Runnable) role. This role
+requires only a `run()` method be implemented in the class. This
+`run()` method should accept all the arguments given on the command
+line. It can parse GNU-style options out of this array using
+["GetOptionsFromArray" in Getopt::Long](https://metacpan.org/pod/Getopt::Long#GetOptionsFromArray).
+
+Task modules can compose additional roles to easily add more features,
+like adding a timeout with [Beam::Runnable::Timeout::Alarm](https://metacpan.org/pod/Beam::Runnable::Timeout::Alarm).
+
+Task modules are expected to have documentation that will be displayed
+by the `beam list` and `beam help` commands. The `beam list` command
+will display the `NAME` section of the documentation, and the `beam
+help` command will display the `NAME`, `SYNOPSIS`, `DESCRIPTION`,
+`ARGUMENTS`, `OPTIONS`, `ENVIRONMENT`, and `SEE ALSO` sections of
+the documentation.
 
 ## Configuration Files
 
@@ -57,18 +75,144 @@ a [DBIx::Class](https://metacpan.org/pod/DBIx::Class) schema (using the schema c
 For more information about container files, see [the Beam::Wire
 documentation](https://metacpan.org/pod/Beam::Wire).
 
-## Tasks
+# QUICKSTART
 
-A task is an object configured in the container file that consumes the
-[Beam::Runnable](https://metacpan.org/pod/Beam::Runnable) role. This role requires only a `run()` method be
-implemented in the class.
+Here's a short tutorial for getting started with `Beam::Runner`. If you
+want to try it yourself, start with an empty directory.
 
-Task modules are expected to have documentation that will be displayed
-by the `beam list` and `beam help` commands. The `beam list` command
-will display the `NAME` section of the documentation, and the `beam
-help` command will display the `NAME`, `SYNOPSIS`, `DESCRIPTION`,
-`ARGUMENTS`, `OPTIONS`, `ENVIRONMENT`, and `SEE ALSO` sections of
-the documentation.
+## Create a Task
+
+To create a task, make a Perl module that uses the [Beam::Runnable](https://metacpan.org/pod/Beam::Runnable) role
+and implements a `run` method. For an example, let's create a task that
+prints `Hello, World!` to the screen.
+
+    package My::Runnable::Greeting;
+    use Moo;
+    with 'Beam::Runnable';
+    sub run {
+        my ( $self, @args ) = @_;
+        print "Hello, World!\n";
+    }
+    1;
+
+If you're following along, save this in the
+`lib/My/Runnable/Greeting.pm` file.
+
+## Create a Configuration File
+
+Now that we have a task to run, we need to create a configuration file
+(or a "container"). The configuration file is a YAML file that describes
+all the tasks we can run. Let's create an `etc` directory and name our
+container file `etc/greet.yml`.
+
+Inside this file, we define our task. We have to give our task a simple
+name, like `hello`. Then we have to say what task class to run (in our case,
+`My::Runnable::Greeting`).
+
+    hello:
+        $class: My::Runnable::Greeting
+
+## Run the Task
+
+Now we can run our task. Before we do, we need to tell `Beam::Runner` where
+to find our code and our configuration by setting some environment variables:
+
+    $ export PERL5LIB=lib:$PERL5LIB
+    $ export BEAM_PATH=etc
+
+The `PERL5LIB` environment variable adds directories for `perl` to search
+for modules (like our task module). The `BEAM_PATH` environment variable
+adds directories to search for configuration files (like ours).
+
+To validate that our environment variables are set correctly, we can list the
+tasks:
+
+    $ beam list
+    greet
+    - hello -- My::Runnable::Greeting
+
+The `beam list` command looks through our `BEAM_PATH` directory, opens
+all the configuration files it finds, and lists all the
+[Beam::Runnable](https://metacpan.org/pod/Beam::Runnable) objects inside (helpfully giving us the module name for us
+to find documentation).
+
+Then, to run the command, we use `beam run` and give it the configuration file
+(`greet`) and the task (`hello`):
+
+    $ beam run greet hello
+    Hello, World!
+
+## Adding Documentation
+
+Part of the additional benefits of defining tasks in [Beam::Runnable](https://metacpan.org/pod/Beam::Runnable) modules
+is that the `beam help` command will show the documentation for the task. To
+do this, we must add documentation to our module.
+
+This documentation is done as [POD](https://metacpan.org/pod/perlpod), Perl's system of documentation.
+Certain sections of the documentation will be shown: `NAME`, `SYNOPSIS`,
+`DESCRIPTION`, `ARGUMENTS`, `OPTIONS`, and `SEE ALSO`.
+
+    =head1 NAME
+
+    My::Runnable::Greeting - Greet the user
+
+    =head1 SYNOPSIS
+
+        beam run greet hello
+
+    =head1 DESCRIPTION
+
+    This task greets the user warmly and then exits.
+
+    =head1 ARGUMENTS
+
+    No arguments are allowed during a greeting.
+
+    =head1 OPTIONS
+
+    Greeting warmly is the only option.
+
+    =head1 SEE ALSO
+
+    L<Beam::Runnable>
+
+If we add this documentation to our `lib/My/Runnable/Greeting.pm` file,
+we can then run `beam help` to see the documentation:
+
+    $ beam help greet hello
+    NAME
+        My::Runnable::Greeting - Greet the user
+
+    SYNOPSIS
+            beam run greet hello
+
+    DESCRIPTION
+        This task greets the user warmly and then exits.
+
+    ARGUMENTS
+        No arguments are allowed during a greeting.
+
+    OPTIONS
+        Greeting warmly is the only option.
+
+    SEE ALSO
+        Beam::Runnable
+
+The `beam list` command will also use our new documentation to show the `NAME`
+section:
+
+    $ beam list
+    greet
+    - hello -- My::Runnable::Greeting - Greet the user
+
+## Going Further
+
+For more information on how to use the configuration file to create more
+complex objects like database connections, see
+[Beam::Wire::Help::Config](https://metacpan.org/pod/Beam::Wire::Help::Config).
+
+To learn how to run your tasks using a distributed job queue to
+parallelize and improve performance, see [Beam::Minion](https://metacpan.org/pod/Beam::Minion).
 
 # SEE ALSO
 
