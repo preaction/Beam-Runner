@@ -5,6 +5,8 @@ Changelog for Beam-Runner
     [Added]
     - Added Beam::Runnable::AllowUsers role to provide a simple
       pre-check so only certain users can run a script.
+    - Added Beam::Runnable::Single role to ensure a task is only able to
+      be run once at a time.
 
 0.011     2017-06-09 01:48:33-05:00 America/Chicago
 
