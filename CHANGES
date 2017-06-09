@@ -7,6 +7,8 @@ Changelog for Beam-Runner
     - Beam::Runnable::Timeout::Alarm role allows easily adding timeouts
       to runnable modules.
 
+    - Added quickstart tutorial for getting started using Beam::Runner.
+
 0.010     2017-05-13 10:34:53+02:00 Europe/Paris
 
     [Fixed]
