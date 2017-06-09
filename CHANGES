@@ -2,6 +2,10 @@ Changelog for Beam-Runner
 
 {{ $NEXT }}
 
+    [Added]
+    - Added Beam::Runnable::AllowUsers role to provide a simple
+      pre-check so only certain users can run a script.
+
 0.011     2017-06-09 01:48:33-05:00 America/Chicago
 
     [Added]
