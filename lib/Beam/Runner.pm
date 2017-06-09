@@ -62,6 +62,9 @@ help> command will display the C<NAME>, C<SYNOPSIS>, C<DESCRIPTION>,
 C<ARGUMENTS>, C<OPTIONS>, C<ENVIRONMENT>, and C<SEE ALSO> sections of
 the documentation.
 
+Task modules can compose additional roles to easily add more features,
+like adding a timeout with L<Beam::Runnable::Timeout::Alarm>.
+
 =head1 SEE ALSO
 
 L<beam>, L<Beam::Runnable>, L<Beam::Wire>
