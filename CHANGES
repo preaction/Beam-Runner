@@ -1,5 +1,13 @@
 Changelog for Beam-Runner
 
+{{ $NEXT }}
+
+    [Fixed]
+
+    - Fixed missing dependency on Types::Path::Tiny. This is why
+      I should never, ever ignore the failures from Travis, but this is
+      also why CPAN Testers is so valuable...
+
 0.012     2017-06-18 20:45:07-04:00 America/New_York
 
     [Added]
