@@ -2,6 +2,8 @@ Changelog for Beam-Runner
 
 {{ $NEXT }}
 
+0.015     2019-01-15 00:04:26-05:00 America/New_York
+
     [Added]
 
     - Added Beam::Runner::ExecCommand to easily configure external
