@@ -1,5 +1,14 @@
 Changelog for Beam-Runner
 
+{{ $NEXT }}
+
+    [Added]
+
+    - Added Beam::Runner::ExecCommand to easily configure external
+      commands to execute through `beam run`.
+    - Added Beam::Runner::Steps to execute a series of other
+      Beam::Runnable commands.
+
 0.014     2017-09-17 16:45:25-05:00 America/Chicago
 
     [Added]
