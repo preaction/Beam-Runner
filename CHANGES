@@ -2,6 +2,8 @@ Changelog for Beam-Runner
 
 {{ $NEXT }}
 
+0.016     2019-03-07 21:06:19-06:00 America/Chicago
+
     [Fixed]
 
     - Fixed a warning in utility function when BEAM_PATH environment
