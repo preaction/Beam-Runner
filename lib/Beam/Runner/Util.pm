@@ -47,7 +47,7 @@ in the C<BEAM_PATH> paths.
 
 sub find_containers {
     my %containers;
-    for my $dir ( split /:/, $ENV{BEAM_PATH} ) {
+    for my $dir ( split /$PATHS_SEP/, $ENV{BEAM_PATH} // '' ) {
         my $p = path( $dir );
         my $i = $p->iterator( { recurse => 1, follow_symlinks => 1 } );
         while ( my $file = $i->() ) {
